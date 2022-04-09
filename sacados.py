@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 import csv
+from typing import List
 
 @dataclass
 class objet:
@@ -10,7 +11,7 @@ class objet:
 class sac:
     capacite: int
     total: int
-    resume: []
+    resume: List[objet]
 
 #On initialise la liste d'objets avec le contenu d'un fichier csv. Les cellules sont au format : [valeur,masse]
 def initListe():
@@ -40,9 +41,9 @@ def resTriRatio(liste):
 def main():
     liste = initListe()
 
-    #On initialise un sac à dos avec 15kg de capacité, 0 pour dire qu'il est vide et une liste vide
-    sacados1 = sac(15,0,[])
-    sacados2 = sac(15,0,[])
+    #On initialise un sac à dos avec 35kg de capacité, 0 pour dire qu'il est vide et une liste vide
+    sacados1 = sac(35,0,[])
+    sacados2 = sac(35,0,[])
     liste_current1 = resTriDecroissant(liste)
     liste_current2 = resTriRatio(liste)
 
@@ -65,7 +66,7 @@ def main():
         print('methode tri décroissante plus efficace : total de ' + str(sacados1.total) + '€ (contre ' + str(sacados2.total) + '€ )')
     if (sacados1.total < sacados2.total):
         print('methode tri ratio plus efficace : total de ' + str(sacados2.total) + '€ (contre ' + str(sacados1.total) + '€ )')
-    else:
+    if (sacados1.total == sacados2.total):
         print('meme resultat de : ' + str(sacados1.total) + '€')
 
 if __name__ == "__main__":
