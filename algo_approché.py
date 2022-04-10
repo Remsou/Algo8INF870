@@ -1,7 +1,7 @@
 import numpy as np
 import time
 
-objets = np.loadtxt("instances/instance.txt")
+objets = np.loadtxt("instances/instance1.txt")
 
 def SacADos(objets,poidsSac):
     tps1 = time.time()
@@ -21,4 +21,4 @@ def SacADos(objets,poidsSac):
     tps2 = time.time()
     return sol, tps2-tps1
 
-print(SacADos(objets,30))
+print(SacADos(objets, 1000))

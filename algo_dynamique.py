@@ -2,13 +2,12 @@ import numpy as np
 import random as rd
 import time
 
-objets = np.loadtxt("instances/instance.txt")
 
+objets = np.loadtxt("instances/instance1.txt")
 
 
 def SacADos(objets, poidsSac):
     tps1 = time.time()
-    sac = set()
     sol = np.zeros((len(objets),poidsSac+1))
     for i in range(poidsSac+1):
         sol[0,i] = 0
@@ -22,8 +21,6 @@ def SacADos(objets, poidsSac):
                 sol[i,j] = sol[i-1,j]
     tps2 = time.time()
 
-    return sol, tps2-tps1
+    return sol[len(objets)-1,poidsSac], tps2-tps1
 
-
-
-print(SacADos(objets, 30))
+print(SacADos(objets, 1000))
